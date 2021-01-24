@@ -1,47 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import { BrowserRouter, Route } from 'react-router-dom';
-import Start from './start';
-import Introduce from './introduce';
-import Game from './tic-tac-toe';
-import Community from './community';
-import Lotto from './lotto';
-
-class Index extends React.Component{
-  render(){
-    return(
-        <div className="menu">
-          <BrowserRouter>
-            <Route path="/" exact component={Start} />
-            <Route path="/introduce" component={Introduce} />
-            <Route path="/community" component={Community} />
-            <Route path="/tic-tac-toe" component={Game} />
-            <Route path="/lotto" component={Lotto} />
-          </BrowserRouter>
-        </div>
-    );  
-  }
-}
-
-ReactDOM.render(
-  <Index />,
-  document.getElementById('root')
-);
-
-
-/*class Introduce extends React.Component {
-  render() {
-    return (
-      <div className="introduce"> 
-        <img src={require('./image/introduceImage.webp')}></img> 
-        <div>리액트를 연습하기 위해 간단히 구현해 본 사이트입니다!</div>
-      </div>
-    ); //jsx에서 이미지 업로드시 이미지 파일은 모두 index.js와 같이 src파일 내에 있어야 함.
-  }
-}
-
-
 
 function Square(props) { //Square를 함수 컴포넌트로 수정했을 때 onClick={() => this.props.onClick()}을 onClick={props.onClick}로 간결하게 작성했습니다.
   return (
@@ -163,12 +120,6 @@ class Game extends React.Component {
 }
   
 // ========================================
-  
-ReactDOM.render(
-    <Start />,
-    document.getElementById('startPage')
-  );
-
 function calculateWinner(squares) {
   const lines = [
     [0, 1, 2],
@@ -187,22 +138,6 @@ function calculateWinner(squares) {
     }
   }
   return null;
-}*/
+}
 
-
-
-//==============================현재================================
-// 틱택토를 할 수 있게 해주고,
-// 게임에서 승리했을 때를 알려주며,
-// 게임이 진행됨에 따라 게임 기록을 저장하고,
-// 플레이어가 게임 기록을 확인하고 게임판의 이전 버전을 볼 수 있도록 허용합니다.
-
-/*
---------------------------------추가---------------------------------
-1. 이동 기록 목록에서 특정 형식(행, 열)으로 각 이동의 위치를 표시해주세요.
-//2. 이동 목록에서 현재 선택된 아이템을 굵게 표시해주세요.
-3. 사각형들을 만들 때 하드코딩 대신에 두 개의 반복문을 사용하도록 Board를 다시 작성해주세요.
-4. 오름차순이나 내림차순으로 이동을 정렬하도록 토글 버튼을 추가해주세요.
-5. 승자가 정해지면 승부의 원인이 된 세 개의 사각형을 강조해주세요.
-6. 승자가 없는 경우 무승부라는 메시지를 표시해주세요.
-*/
+export default Game;
