@@ -96,31 +96,40 @@ class Game extends React.Component {
     });
 
     let status;
-    if (winner){
-      status = 'Winner: '+ winner;
-    } else{
-      //if ()
-      status = '다음 타자 : ' + (this.state.xIsNext ? 'X' : 'O');
+    if (calculateWinner(current.squares)===1){
+      status = '무승부';
+    }else{
+      if (winner){
+        status = '승자: '+ winner;
+      } else{
+        status = '다음 타자 : ' + (this.state.xIsNext ? 'X' : 'O');
+      }
     }
+    
     return (
-      <div className="game">
-        <div className="game-board">
-          <Board 
-            squares={current.squares}
-            onClick={(i)=>this.handleClick(i)}
-          />
-        </div>
-        <div className="game-info">
-          <div>{status}</div>
-          <ol>{moves}</ol>
+      <div className="tic-tac-toe">
+        <h4>Tic-Tac-Toe 게임</h4>
+        <div className="game">
+          <div className="game-board">
+            <Board 
+              squares={current.squares}
+              onClick={(i)=>this.handleClick(i)}
+            />
+          </div>
+          <div className="game-info">
+            <div>{status}</div>
+            <ol>{moves}</ol>
+          </div>
         </div>
       </div>
+      
     );
   }
 }
   
 // ========================================
 function calculateWinner(squares) {
+  let playnumber = 0;
   const lines = [
     [0, 1, 2],
     [3, 4, 5],
@@ -131,13 +140,23 @@ function calculateWinner(squares) {
     [0, 4, 8],
     [2, 4, 6],
   ];
+  const space = [
+    [0],[1],[2],
+    [3],[4],[5],
+    [6],[7],[8]
+  ]
+  
   for (let i = 0; i < lines.length; i++) {
     const [a, b, c] = lines[i];
     if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
       return squares[a];
     }
+    /*if (playnumber>5) {
+      return 1;
+    }*/
+    playnumber++;
   }
   return null;
 }
-
+//squares[a] && squares[b] && squares[c] && ((lines[0][i] != lines[0][i])||(squares[a] != squares[c])||(squares[b] != squares[c]))
 export default Game;
