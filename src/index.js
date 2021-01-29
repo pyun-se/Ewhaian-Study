@@ -15,19 +15,20 @@ class Index extends React.Component{
           <Router>
             <div className="menu">
               <ul>
-                <Link to="/introduce"><li>Introduce</li></Link>
-                <Link to="/community"><li>Community</li></Link>
-                <Link to="/tic-tac-toe"><li>Game</li></Link>
-                <Link to="/lotto"><li>Lotto</li></Link>
+                <Link to="/Ewhaian-Study/introduce"><li>Introduce</li></Link>
+                <Link to="/Ewhaian-Study/community"><li>Community</li></Link>
+                <Link to="/Ewhaian-Study/tic-tac-toe"><li>Game</li></Link>
+                <Link to="/Ewhaian-Study/lotto"><li>Lotto</li></Link>
               </ul>
             </div>
             <div className="contents">
               <Switch>
                 <Route exact path="/" exact component={Start} />
-                <Route path="/introduce" component={Introduce} />
-                <Route path="/community" component={Community} />
-                <Route path="/tic-tac-toe" component={Game} />
-                <Route path="/lotto" component={Lotto} />
+                <Route exact path="/Ewhaian-Study/" component={Start} />
+                <Route path="/Ewhaian-Study/introduce" component={Introduce} />
+                <Route path="/Ewhaian-Study/community" component={Community} />
+                <Route path="/Ewhaian-Study/tic-tac-toe" component={Game} />
+                <Route path="/Ewhaian-Study/lotto" component={Lotto} />
               </Switch>
             </div>
           </Router> 
