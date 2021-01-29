@@ -85,9 +85,7 @@ class Game extends React.Component {
     const winner = calculateWinner(current.squares);
 
     const moves = history.map((step, move) => {
-      const desc = move ?
-        move + '로 이동' + '':
-        '처음으로 이동';
+      const desc = move ? move + '로 이동' : '처음으로 이동';
       return (
         <li key={move} className="number">
           <button className="numberbutton" onClick={() => this.jumpTo(move)}>{desc}</button>
@@ -96,16 +94,16 @@ class Game extends React.Component {
     });
 
     let status;
-    if (calculateWinner(current.squares)===1){
-      status = '무승부';
+    if (winner){
+      status = '승자: '+ winner;
     }else{
-      if (winner){
-        status = '승자: '+ winner;
-      } else{
+      if (this.state.history.length===10){
+        status = '무승부';
+      }else{
         status = '다음 타자 : ' + (this.state.xIsNext ? 'X' : 'O');
       }
     }
-    
+
     return (
       <div className="tic-tac-toe">
         <h4>Tic-Tac-Toe 게임</h4>
@@ -129,7 +127,6 @@ class Game extends React.Component {
   
 // ========================================
 function calculateWinner(squares) {
-  let playnumber = 0;
   const lines = [
     [0, 1, 2],
     [3, 4, 5],
@@ -140,23 +137,14 @@ function calculateWinner(squares) {
     [0, 4, 8],
     [2, 4, 6],
   ];
-  const space = [
-    [0],[1],[2],
-    [3],[4],[5],
-    [6],[7],[8]
-  ]
   
   for (let i = 0; i < lines.length; i++) {
     const [a, b, c] = lines[i];
     if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
       return squares[a];
     }
-    /*if (playnumber>5) {
-      return 1;
-    }*/
-    playnumber++;
   }
   return null;
 }
-//squares[a] && squares[b] && squares[c] && ((lines[0][i] != lines[0][i])||(squares[a] != squares[c])||(squares[b] != squares[c]))
+
 export default Game;
