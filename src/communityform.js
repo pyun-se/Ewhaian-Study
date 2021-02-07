@@ -1,33 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import ReactHtmlParser from 'react-html-parser';
-import Axios from 'axios';
 
 function Community() { //invalid hook call error 때문에 function으로 구성
   const [Content, setContent] = useState({
     title: '',
     content: ''
   })
-
   const [viewContent, setViewContent] = useState([]);
-
-  useEffect(()=>{
-    Axios.get('http://localhost:8000/api/get').then((response)=>{
-      setViewContent(response.data);
-    })
-  },[viewContent]) //useEffect 훅을 사용하는데 2번째 인자에 [] 빈 배열을 넣어주면 이 코드를 처음 1회만 실행한다는 의미
-
-  const submitReview = ()=>{
-    Axios.post('http://localhost:8000/api/insert', {
-      title: Content.title,
-      content: Content.content
-    }).then(()=>{
-      alert('등록 완료!');
-    })
-  };
-
-  const getValue = (e) => {
+  const getValue = e => {
     const { name, value } = e.target;
     setContent({ //Content 의 내용을 복사해서 그 안에 name이라는 이름의 키의 값을 value로 바꿔 저장
       ...Content,
@@ -38,13 +20,15 @@ function Community() { //invalid hook call error 때문에 function으로 구성
   return (
     <div className="community"> 
       <h4>커뮤니티</h4>
-      <div className="community_container">
-        <div>
-          <h5>{viewContent.title}</h5>
+      <div className='community_container'>
+        {viewContent.map(element=>
           <div>
-            {ReactHtmlParser(viewContent.content)}
+            <h5>{element.title}</h5>
+            <div>
+              {ReactHtmlParser(element.content)}
+            </div>
           </div>
-        </div>
+        )}
       </div>
       <div className='community_form'>
         <h5>게시글 작성</h5>
@@ -72,9 +56,9 @@ function Community() { //invalid hook call error 때문에 function으로 구성
         }}
         />        
       </div>
-      <button className="form-submit" onClick={submitReview}>작성하기</button>
+      <button className="form-submit" onClick={()=>{setViewContent(viewContent.concat({...Content}))}}>입력</button>
     </div>
   );
 }
 
-export default Community;
+export default Communityform;
