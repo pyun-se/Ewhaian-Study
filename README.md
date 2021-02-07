@@ -1,7 +1,7 @@
 # Tic-Tac-Toe 웹 게임
 
 ### 현재 상황
-
+<br>
 ## 소개
 1. 사진 첨부
 2. 페이지 간략한 소개
@@ -44,7 +44,7 @@ Launches the test runner in the interactive watch mode.<br />
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
-프로젝트 GitHub Pages 반영 명령어
+프로젝트 GitHub Pages 반영 명령어<br>
 Builds the app for production to the `build` folder.<br />
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
