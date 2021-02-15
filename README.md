@@ -1,16 +1,26 @@
 # Tic-Tac-Toe 웹 게임
 
 ### 현재 상황
-틱택토 진행 가능, 게임 승리 확인 가능, 게임 기록을 저장 가능, 게임 기록을 확인 및 게임판 이전 버전 보기 가능
-(01.24) html이 아닌 js파일로 페이지 구성 변경하도록 구성 변경 중, menu바 생성, tic-tac-toe 게임 메뉴 일부로 위치 수정, tic-tac-toe 이동 목록에서 현재 선택된 아이템을 굵게 표시
 
-### 추가 목표
-1. 이동 기록 목록에서 특정 형식(행, 열)으로 각 이동의 위치를 표시
-2. 사각형들을 만들 때 하드코딩 대신에 두 개의 반복문을 사용하도록 Board를 다시 작성
-3. 오름차순이나 내림차순으로 이동을 정렬하도록 토글 버튼을 추가
-4. 승자가 정해지면 승부의 원인이 된 세 개의 사각형 강조
-5. 승자가 없는 경우 무승부라는 메시지를 표시
+## 소개
+1. 사진 첨부
+2. 페이지 간략한 소개
 
+## 커뮤니티
+1. 커뮤니티 상단 커뮤니티 게시글 목록
+2. 하단 커뮤니티 게시글 작성란
+
+## 틱택토 게임
+1. 게임에서 승리 확인 가능
+2. 게임이 진행됨에 따라 게임 기록을 저장
+3. 플레이어가 게임 기록을 확인하고 게임판의 이전 버전을 볼 수 있도록 허용
+4. 승자가 없는 경우 무승부라는 메시지를 표시
+
+## 로또 게임
+1. 로또 번호 추첨 가능
+2. 로또 번호 추첨 중간에는 추첨 버튼 사라짐
+3. 로또 번호 각 번호대별 색 부여
+<br>
 -------------------------------------------------------------------------------------------------------------------------------------
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -21,6 +31,7 @@ In the project directory, you can run:
 
 ### `npm start`
 
+*리액트 프로젝트 실행 명령어<br>
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
@@ -33,7 +44,7 @@ Launches the test runner in the interactive watch mode.<br />
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
-
+*프로젝트 GitHub Pages 반영 명령어<br>
 Builds the app for production to the `build` folder.<br />
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
