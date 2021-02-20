@@ -1,6 +1,7 @@
-/*------------------Global Setting-------------------*/
+/*-------------------------Global Setting--------------------------*/
+@charset "utf-8";
 body {
-  font: 14px "Century Gothic", Futura, sans-serif;  margin: 0;
+  font: 14px "이화체", Futura, sans-serif;  margin: 0;
 }
 
 ol, ul {
@@ -246,4 +247,81 @@ a,a:link,a:hover, a:visited{
 .numberbutton:focus{
   outline: 0;
   background-color: rgb(255, 236, 239);
+}
+
+
+/*--------------------------------------media query----------------------------------------*/
+/* 모바일 */
+@media screen and (max-width:576px){ 
+  .contents{
+    margin: 50px 0px;
+  }
+  .introduce img{
+    margin: 0 20px 20px;
+  }
+  .game{
+    display: block;
+  }.game-board{
+    margin-bottom: 20px;
+    margin-left: 25%;
+  }.game-info{
+    margin-left: 20%;
+  }
+  .lotto{
+    min-height: 280px;
+  }.lotto_game{
+    border-radius: 20px;
+  }.lotto_game li{
+    line-height: 25px;
+    margin: 20px 10px;
+  }.lotto_game div{
+    width: 25px;
+    font-size: 15px;
+  }.lotto_game li:nth-child(7){
+    font-size: 10px;
+    margin: 20px 0;
+  }.lotto_number{
+    left: 30%;
+  }.lotto_bonus{
+    left: 63%;
+  }.lotto_button{
+    left: 35%;
+  }
+}
+
+/*-------------------------twitter Bootstrap-------------------------*/
+.row{
+  margin-left: -30px;
+  *zoom: 1;
+}
+.row:before,.row:after{
+  display: table;
+  line-height: 0;
+  content: "";
+}
+.row:after{
+  clear: both;
+}
+[class*="span"]{
+  float: left;
+  min-height: 1px;
+  margin-left: 30px;
+}
+.container,
+.navbar-static-top .container,
+.navbar-fixed-top .container,
+.navbar-fixed-bottom .container{
+  width: 1170px;
+}
+.row-fluid:before,
+.row-fluid:after{
+  display: table;
+  line-height: 0;
+  content: "";
+}
+.row-fluid:after{
+  clear: both;
+}
+.container-fluid{
+  padding: 0;
 }
